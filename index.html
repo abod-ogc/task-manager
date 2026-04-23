@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main class="container">
+        <header>
+            <div>
+                <h2>Task Manager (IndexedDB)</h2>
+                <p>One page • Modern UI • Persisted locally (refresh-safe)</p>
+            </div>
+            <div class="helpful-shortcuts-area">
+                <span class="tag task-types-counter">Total: 0 • Pending: 0 • Done: 0</span>
+                <button class="seed-btn"><i class="fa-solid fa-shuffle"></i>Seed</button>
+                <button class="clear-btn"><i class="fa-solid fa-xmark"></i>Clear All</button>
+            </div>
+        </header>
+        <div class="data-control-area">
+             <div class="fillters">
+                <input type="radio" name="tasks-filter" id="all_tasks" hidden checked value="all">
+                <label for="all_tasks" class="fillter-btn-mask"><i class="fa-solid fa-border-all"></i>All</label>
+
+                <input type="radio" name="tasks-filter" id="pending_tasks" hidden value="pending">
+                <label for="pending_tasks" class="fillter-btn-mask"><i class="fa-solid fa-spinner"></i>Pending</label>
+
+                <input type="radio" name="tasks-filter" id="done_tasks" hidden value="done">
+                <label for="done_tasks" class="fillter-btn-mask"><i class="fa-regular fa-circle-check"></i>Done</label>
+            </div>
+            <div class="search-area">
+                <input type="text" name="search-input" id="search_input" placeholder="search titel/description...">
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="add-new-task-area">
+                <h3>Add New Task</h3>
+                <p>Pending tasks are <kbd>Yellow</kbd>. Mark done to turn <kbd>Green</kbd>.</p>
+                <div class="inputs-area">
+                    <div class="input-area">
+                        <label for="task-titel">Title (required)</label>
+                        <input type="text" name="task-titel" id="task_titel_input" placeholder="e.g., Write my homework..." required>
+                    </div>
+                    <div class="input-area">
+                        <label for="task-description">Description (optional, max 300)</label>
+                        <textarea name="task-description" id="task_description_input" max="300" placeholder="Details..."></textarea>
+                    </div>
+                    <div class="action-btns">
+                        <button class="reset-btn seondary-btn"><i class="fa-solid fa-rotate"></i>Reset</button>
+                        <button class="add-task-btn primary-btn"><i class="fa-solid fa-plus"></i>Add Task</button>
+                    </div>
+                </div>
+                <p>Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to add quickly. </p>
+            </div>
+            <div class="tasks-area">
+                <div class="tasks-count-area">
+                    <h3>Tasks:</h3>
+                    <p class="tasks-count-placeholder">0 shown</p>
+                </div>
+                <div class="tasks"></div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
